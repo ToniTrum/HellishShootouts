@@ -1,0 +1,96 @@
+# Unity generated files
+/[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Unity cache and temporary files
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity package manager cache
+/[Pp]ackages/
+
+# Asset meta files should be included, but these are exceptions
+*.meta
+!Assets/*.meta
+
+# Build output
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crash reports and logs
+sysinfo.txt
+crashlytics/
+*.log
+
+# Visual Studio / Rider / VS Code
+/.vscode/
+*.vsconfig
+*.code-workspace
+/.idea/
+*.iml
+
+# Mac OS files
+.DS_Store
+._*
+
+# Windows files
+Thumbs.db
+desktop.ini
+
+# Other editor backups
+*~
+*.bak
+*.swp
+
+# Dependency directories
+/[Nn]ode_modules/
+/[Pp]ackage-lock.json
+
+# Unity Analytics and other services
+/[Aa]nalytics/
+
+# Ignore Unity backup files
+*.back.*
+*.backup
+
+# Ignore Unity scene backups
+*.unity~
+
+# Ignore local configuration files
+/[Pp]roject[Ss]ettings/*.asset
+/[Pp]roject[Ss]ettings/TagManager.asset
+/[Pp]roject[Ss]ettings/InputManager.asset
+/[Pp]roject[Ss]ettings/TimeManager.asset
+/[Pp]roject[Ss]ettings/Physics2DSettings.asset
+/[Pp]roject[Ss]ettings/QualitySettings.asset
+/[Pp]roject[Ss]ettings/AudioManager.asset
+/[Pp]roject[Ss]ettings/GraphicsSettings.asset
+/[Pp]roject[Ss]ettings/EditorBuildSettings.asset
+/[Pp]roject[Ss]ettings/EditorSettings.asset
+/[Pp]roject[Ss]ettings/DynamicsManager.asset
+/[Pp]roject[Ss]ettings/NavMeshAreas.asset
+/[Pp]roject[Ss]ettings/NetworkManager.asset
+/[Pp]roject[Ss]ettings/ClusterInputManager.asset
+/[Pp]roject[Ss]ettings/UnityConnectSettings.asset
+
+# Include essential ProjectSettings files if they are customized
+!/[Pp]roject[Ss]ettings/ProjectSettings.asset
+!/[Pp]roject[Ss]ettings/VersionControlSettings.asset
