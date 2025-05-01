@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
 
     private Vector2 _movementInput;
     private Vector2 _smoothedMovementInput;
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMove(InputValue inputValue)
     {
         _movementInput = inputValue.Get<Vector2>();
-
+        bool isWalk = _movementInput.magnitude > 0;
+        _animator.SetBool("isWalk", isWalk);
     }
 }
