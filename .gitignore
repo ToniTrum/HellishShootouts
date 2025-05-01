@@ -46,6 +46,7 @@ crashlytics/
 *.code-workspace
 /.idea/
 *.iml
+/.vs/
 
 # Mac OS files
 .DS_Store
