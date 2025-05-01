@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _speed = 1f;
 
     private Rigidbody2D _rigidbody;
     private EnemyStalking _enemyStalking;
 
-    private Vector2 _targetDirection;
+    public Vector2 targetDirection;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -24,23 +24,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_enemyStalking.StalkingOfPlayer)
         {
-            _targetDirection = _enemyStalking.DirectionToPlayer;
+            targetDirection = _enemyStalking.DirectionToPlayer;
         }
         else
         {
-            _targetDirection = Vector2.zero;
+            targetDirection = Vector2.zero;
         }
     }
 
     private void SetVelocity()
     {
-        if (_targetDirection == Vector2.zero)
-        {
-            _rigidbody.velocity = Vector2.zero;
-        }
-        else
-        {
-            _rigidbody.velocity = _targetDirection * _speed;
-        }
+        _rigidbody.velocity = targetDirection * _speed;
     }
 }

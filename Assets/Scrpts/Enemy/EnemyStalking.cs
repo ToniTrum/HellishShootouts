@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyStalking : MonoBehaviour
 {
-    [SerializeField] private float _playerDistance;
+    [SerializeField] private float _attackDistance = 1f;
 
     private Transform _player;
 
@@ -19,7 +19,7 @@ public class EnemyStalking : MonoBehaviour
         Vector2 enemyToPlayer = _player.position - transform.position;
         DirectionToPlayer = enemyToPlayer.normalized;
 
-        if (enemyToPlayer.magnitude >= _playerDistance)
+        if (enemyToPlayer.magnitude >= _attackDistance)
         {
             StalkingOfPlayer = true;
         }
