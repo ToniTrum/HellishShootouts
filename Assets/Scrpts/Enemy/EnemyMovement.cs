@@ -7,7 +7,8 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private EnemyStalking _enemyStalking;
 
-    public Vector2 targetDirection;
+    private Vector2 _targetDirection;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -24,16 +25,18 @@ public class EnemyMovement : MonoBehaviour
     {
         if (_enemyStalking.StalkingOfPlayer)
         {
-            targetDirection = _enemyStalking.DirectionToPlayer;
+            _targetDirection = _enemyStalking.DirectionToPlayer;
         }
         else
         {
-            targetDirection = Vector2.zero;
+            _targetDirection = Vector2.zero;
         }
     }
 
     private void SetVelocity()
     {
-        _rigidbody.velocity = targetDirection * _speed;
+        _rigidbody.velocity = _targetDirection * _speed;
     }
+
+    public Vector2 GetVelocity() => _rigidbody.velocity;
 }

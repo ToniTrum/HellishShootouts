@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator _animator;
+
+    private EnemyMovement _enemyMovement;
+
+    private readonly int _isWalkingHash = Animator.StringToHash("IsWalking");
+
+    private void Awake()
     {
-        
+        _animator = GetComponent<Animator>();
+        _enemyMovement = GetComponent<EnemyMovement>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        bool isWalking = _enemyMovement.GetVelocity().magnitude > 0.1f;
+        _animator.SetBool(_isWalkingHash, isWalking);
     }
 }
