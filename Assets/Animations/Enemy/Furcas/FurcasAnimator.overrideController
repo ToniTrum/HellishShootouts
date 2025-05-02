@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FurcasAnimator
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 7379d610c9c2d494bb699c20748060de, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a3edec9d9ed0a834cb791019677e880e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 59d6a5f780e9efb40aefe3e232c5d17e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6cf432064b7b76440ba417b955c87879, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f5c5b9282137fcb4eae5e9e5433d5861, type: 2}

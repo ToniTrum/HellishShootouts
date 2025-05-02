@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     private Vector2 _movementInput;
     private Vector2 _smoothedMovementInput;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -36,5 +38,10 @@ public class PlayerMovement : MonoBehaviour
         _movementInput = inputValue.Get<Vector2>();
         bool isWalk = _movementInput.magnitude > 0;
         _animator.SetBool("isWalk", isWalk);
+
+        if (isWalk)
+        {
+            _spriteRenderer.flipX = _movementInput.x < 0;
+        }
     }
 }
