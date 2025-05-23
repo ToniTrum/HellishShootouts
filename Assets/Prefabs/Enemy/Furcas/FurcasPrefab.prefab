@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1280186011095931409, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: attackDistance
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1704384847091714825, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
       propertyPath: m_Name
-      value: EnemyPrefab
+      value: FurcasPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 2736838568640018846, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,8 +56,68 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _config
+      value: 
+      objectReference: {fileID: 11400000, guid: 63094626e6f132a4d9617cab55d554d2, type: 2}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _enemyStalking
+      value: 
+      objectReference: {fileID: 4901560344232665652}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _enemyAnimation
+      value: 
+      objectReference: {fileID: 6279727575256460774}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 8308415039857612523}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: forwardDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: totalAttackDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7507972835572808743, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _enemySpriteRenderer
+      value: 
+      objectReference: {fileID: 5868699146393822766}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+--- !u!114 &4901560344232665652 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1280186011095931409, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+  m_PrefabInstance: {fileID: 6179489875577616421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca2cd7e0e0760e41b3cd01054b7c6e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &5868699146393822766 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 337835438169136651, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+  m_PrefabInstance: {fileID: 6179489875577616421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6279727575256460774 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 209390687296148931, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+  m_PrefabInstance: {fileID: 6179489875577616421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464d32b064a27b54e9d13d6d6ed0689d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &8308415039857612523 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2777769035009683150, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+  m_PrefabInstance: {fileID: 6179489875577616421}
+  m_PrefabAsset: {fileID: 0}
