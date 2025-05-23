@@ -4,7 +4,7 @@ public class EnemyStalking : MonoBehaviour
 {
     [SerializeField] public float attackDistance = 1f;
 
-    private Transform _player;
+    public Transform player;
 
     public bool StalkingOfPlayer { get; private set; }
 
@@ -12,11 +12,11 @@ public class EnemyStalking : MonoBehaviour
 
     private void Awake()
     {
-        _player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<PlayerMovement>().transform;
     }
     private void Update()
     {
-        Vector2 enemyToPlayer = _player.position - transform.position;
+        Vector2 enemyToPlayer = player.position - transform.position;
         DirectionToPlayer = enemyToPlayer.normalized;
 
         if (enemyToPlayer.magnitude >= attackDistance)

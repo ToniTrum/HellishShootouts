@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff3f13aaed2b314d8ebb11190de4ab8, type: 3}
   m_Name: FurcasWeaponConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 6d8ee34989672ca4fabc25b449c1baa1, type: 3}
-  positionOffset: {x: 0.2, y: 0}
+  sprite: {fileID: 21300000, guid: bf7580cd56f151345bf4c4f985909ebc, type: 3}
+  positionOffset: {x: -1, y: 0}
   spriteFaceUp: 0
-  behavior: {fileID: 0}
+  behavior: {fileID: 11400000, guid: a5015a7edd64af14b831e7bb490f750d, type: 2}

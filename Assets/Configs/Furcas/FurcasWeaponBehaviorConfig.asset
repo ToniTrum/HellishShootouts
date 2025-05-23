@@ -12,8 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123f154c01f9a1045b82e8ea1a456103, type: 3}
   m_Name: FurcasWeaponBehaviorConfig
   m_EditorClassIdentifier: 
-  idleOffset: {x: 0, y: 0}
-  idleSwayAmplitude: 0.1
-  idleSwaySpeed: 2
-  walkOffset: {x: 0, y: 0}
-  walkRotationOffset: 0
+  idleOffset: {x: 0.4, y: 0}
+  idleSwayAmplitude: 0.05
+  idleSwaySpeed: 8
+  walkOffset: {x: 0.15, y: -0.2}
+  walkRotationOffset: -90
+  attackOffset: {x: 0.15, y: -0.2}
+  attackSpeed: 0
+  attackRotationOffset: -90
+  backDistance: 0.2
+  forwardDistance: 1
+  backDuration: 0.2
+  forwardDuration: 0.4
+  totalAttackDuration: 0.8

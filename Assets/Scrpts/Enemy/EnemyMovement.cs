@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2 _targetDirection;
 
+    public bool IsAttacking { get; set; }
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -23,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void UpdateTargetDirection()
     {
-        if (_enemyStalking.StalkingOfPlayer)
+        if (_enemyStalking.StalkingOfPlayer && !IsAttacking)
         {
             _targetDirection = _enemyStalking.DirectionToPlayer;
         }

@@ -4,7 +4,5 @@ using UnityEngine;
 public class EnemyWeaponConfig : ScriptableObject
 {
     public Sprite sprite;
-    public Vector2 positionOffset;
-    public bool spriteFaceUp;
-    public WeaponBehaviorConfig behavior;
+    public EnemyWeaponBehaviorConfig behavior;
 }
