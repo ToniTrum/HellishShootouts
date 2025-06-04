@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6765892282721576704}
   - component: {fileID: 1280186011095931409}
   - component: {fileID: 209390687296148931}
+  - component: {fileID: 2797064687259291375}
   - component: {fileID: 5757868978561194026}
   m_Layer: 0
   m_Name: EnemyPrefab
@@ -142,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca2cd7e0e0760e41b3cd01054b7c6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackDistance: 0
+  attackDistance: 1
+  player: {fileID: 0}
 --- !u!114 &209390687296148931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +157,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 464d32b064a27b54e9d13d6d6ed0689d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 1
   _animator: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+--- !u!114 &2797064687259291375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704384847091714825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c43a858a524444cb8fc6f6fd8f0090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5757868978561194026
 Animator:
   serializedVersion: 5
