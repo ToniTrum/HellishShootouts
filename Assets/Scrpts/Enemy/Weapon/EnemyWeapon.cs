@@ -6,6 +6,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private EnemyStalking _enemyStalking;
     [SerializeField] private EnemyAnimation _enemyAnimation;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private float damageAmount = 10f;
 
     private Animator _enemyAnimator;
     private readonly int _isWalkingHash = Animator.StringToHash("IsWalking");
@@ -15,6 +16,7 @@ public class EnemyWeapon : MonoBehaviour
     private float _attackStartTime;
     private bool _isAttacking;
     private Vector2 _attackDirection;
+    private Collider2D _weaponCollider;
 
     private void Awake()
     {
@@ -22,6 +24,10 @@ public class EnemyWeapon : MonoBehaviour
         _enemyAnimation = GetComponentInParent<EnemyAnimation>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _enemyAnimator = _enemyAnimation.GetComponent<Animator>();
+
+        _weaponCollider = GetComponent<Collider2D>();
+        _weaponCollider.isTrigger = true;
+        _weaponCollider.enabled = false;
 
         _initialPosition = transform.localPosition;
         ApplyConfig();
@@ -45,6 +51,7 @@ public class EnemyWeapon : MonoBehaviour
             _attackStartTime = Time.time;
             _isAttacking = true;
             _attackDirection = _enemyStalking.DirectionToPlayer;
+            _weaponCollider.enabled = true;
         }
 
         if (isWalking)
@@ -68,12 +75,25 @@ public class EnemyWeapon : MonoBehaviour
             if (!_isAttacking)
             {
                 _enemyAnimation.EndAttack();
+                _weaponCollider.enabled = false;
             }
         }
         else
         {
             transform.rotation = Quaternion.identity;
             _config.behavior.Idle(transform, isFlipped);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && _isAttacking)
+        {
+            PlayerStats playerStats = other.GetComponent<PlayerStats>();
+            if (playerStats != null)
+            {
+                playerStats.TakeDamage(damageAmount);
+            }
         }
     }
 }
