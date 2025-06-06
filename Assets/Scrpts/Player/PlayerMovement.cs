@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
             0.1f
         );
 
-        _rigidbody.velocity = _smoothedMovementInput * _speed;
+        _rigidbody.linearVelocity = _smoothedMovementInput * _speed;
     }
 
     private void OnMove(InputValue inputValue)
