@@ -37,8 +37,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void SetVelocity()
     {
-        _rigidbody.velocity = _targetDirection * _speed;
+        _rigidbody.linearVelocity = _targetDirection * _speed;
     }
 
-    public Vector2 GetVelocity() => _rigidbody.velocity;
+    public Vector2 GetVelocity() => _rigidbody.linearVelocity;
 }
