@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d1d24cee78022494eb367d5dadc6515b
+guid: 67efb358b8a18fb4288478bfbf4ea65e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2308394529229071116
-    second: BricksBlock_0
+      213: 6501164644501743964
+    second: ShadowedFloorTile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BricksBlock_0
+      name: ShadowedFloorTile_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fc98d3f76fe6ffd0800000000000000
-      internalID: -2308394529229071116
+      spriteID: c59eaddacc6c83a50800000000000000
+      internalID: 6501164644501743964
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BricksBlock_0: -2308394529229071116
+      ShadowedFloorTile_0: 6501164644501743964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
