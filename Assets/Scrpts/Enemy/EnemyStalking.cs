@@ -12,7 +12,7 @@ public class EnemyStalking : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindFirstObjectByType<PlayerMovement>().transform;
     }
     private void Update()
     {
