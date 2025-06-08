@@ -26,6 +26,10 @@ public class PlayerStats : MonoBehaviour
     public event Action<float, float> OnManaChanged; // (current, max)
     public event Action OnDeath;
 
+    // Camera shake
+    [SerializeField] private float dmgShakeIntensity = 5f; // Intensity when player receives dmg
+    [SerializeField] private float dmgShakeTime = 1f; // Duration
+
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -41,6 +45,9 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(float amount)
     {
         if (amount <= 0) return;
+
+        //Camera Shake
+        CinemachineShake.Instance.ShakeCamera(dmgShakeIntensity, dmgShakeTime);
 
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
         lastDamageTime = Time.time;
