@@ -12,10 +12,8 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private EnemySpawner spawner;
     [SerializeField] private EnemySpawnData[] enemyTypes;
     [SerializeField] private Vector2 spawnAreaSize = new(23f, 22f);
-    [SerializeField] private int maxEnemies = 5;
     [SerializeField] private float spawnInterval = 5f;
 
-    private int currentEnemyCount = 0;
     private float nextSpawnTime;
 
     private void Start()
@@ -25,7 +23,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= nextSpawnTime && currentEnemyCount <= maxEnemies && spawner != null)
+        if (Time.time >= nextSpawnTime && spawner != null)
         {
             SpawnRandomEnemy();
             nextSpawnTime = Time.time + spawnInterval;
@@ -57,21 +55,10 @@ public class EnemySpawnManager : MonoBehaviour
                     );
                     Vector3 spawnPosition = transform.position + randomPoint;
 
-                    // Устанавливаем Prefab в спawner и спавним
                     spawner.enemyPrefab = enemy.enemyPrefab;
                     spawner.SpawnEnemy(spawnPosition);
-                    currentEnemyCount++;
                     break;
                 }
-            }
-        }
-
-        if (enemyTypes.Length > 0 && enemyTypes[0].enemyPrefab != null)
-        {
-            EnemyStats enemyStats = enemyTypes[0].enemyPrefab.GetComponent<EnemyStats>();
-            if (enemyStats != null)
-            {
-                enemyStats.OnDeath += () => currentEnemyCount--;
             }
         }
     }
