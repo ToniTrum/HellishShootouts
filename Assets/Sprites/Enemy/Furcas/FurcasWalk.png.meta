@@ -1,7 +1,22 @@
 fileFormatVersion: 2
 guid: 8f184a96c4ecccc439264c5520bdfb2b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1137281847462538614
+    second: FurcasWalk_0
+  - first:
+      213: -388436813865680846
+    second: FurcasWalk_1
+  - first:
+      213: 7668765369069428516
+    second: FurcasWalk_2
+  - first:
+      213: -3104628184385792239
+    second: FurcasWalk_3
+  - first:
+      213: 2141352178754081991
+    second: FurcasWalk_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +82,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,21 +95,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,12 +122,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 43d7a0e6d4f65db41b96c83722454fdd
-      internalID: 619721654
+      spriteID: 67d218f80df68cf00800000000000000
+      internalID: 1137281847462538614
       vertices: []
       indices: 
       edges: []
@@ -141,12 +144,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 910a22168e198ee4489d08234d41cf88
-      internalID: -1928701763
+      spriteID: 2300adb96cefb9af0800000000000000
+      internalID: -388436813865680846
       vertices: []
       indices: 
       edges: []
@@ -162,12 +166,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: c44be5e87d54acc4d965303781a98f0f
-      internalID: 1471499122
+      spriteID: 42f5339e87dec6a60800000000000000
+      internalID: 7668765369069428516
       vertices: []
       indices: 
       edges: []
@@ -183,12 +188,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 94a51e426b2a49842869f8601fe2a8a0
-      internalID: -2122040560
+      spriteID: 117d4068d152ae4d0800000000000000
+      internalID: -3104628184385792239
       vertices: []
       indices: 
       edges: []
@@ -204,32 +210,38 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 9ba0a389d0e9d474c84b8f2dfa7646a5
-      internalID: 715172315
+      spriteID: 7c455a1167c97bd10800000000000000
+      internalID: 2141352178754081991
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a217923159df5f940a694473a44e6635
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      FurcasWalk_0: 619721654
-      FurcasWalk_1: -1928701763
-      FurcasWalk_2: 1471499122
-      FurcasWalk_3: -2122040560
-      FurcasWalk_4: 715172315
+      FurcasWalk_0: 1137281847462538614
+      FurcasWalk_1: -388436813865680846
+      FurcasWalk_2: 7668765369069428516
+      FurcasWalk_3: -3104628184385792239
+      FurcasWalk_4: 2141352178754081991
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
