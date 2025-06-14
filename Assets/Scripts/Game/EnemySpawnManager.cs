@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawnManager : MonoBehaviour
 {
@@ -7,9 +8,10 @@ public class EnemySpawnManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
         [Range(0f, 100f)] public float spawnChance;
+        public RuntimeAnimatorController spawnAnimator;
     }
 
-    [SerializeField] private EnemySpawner spawner;
+    [SerializeField] private GameObject _spawnAnimationPrefab;
     [SerializeField] private EnemySpawnData[] enemyTypes;
     [SerializeField] private Vector2 spawnAreaSize = new(23f, 22f);
     [SerializeField] private float spawnInterval = 5f;
@@ -23,14 +25,14 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= nextSpawnTime && spawner != null)
+        if (Time.time >= nextSpawnTime)
         {
-            SpawnRandomEnemy();
+            SelectRandomEnemy();
             nextSpawnTime = Time.time + spawnInterval;
         }
     }
 
-    private void SpawnRandomEnemy()
+    private void SelectRandomEnemy()
     {
         float totalChance = 0f;
         foreach (var enemy in enemyTypes)
@@ -55,12 +57,37 @@ public class EnemySpawnManager : MonoBehaviour
                     );
                     Vector3 spawnPosition = transform.position + randomPoint;
 
-                    spawner.enemyPrefab = enemy.enemyPrefab;
-                    spawner.SpawnEnemy(spawnPosition);
+                    SpawnSpawnAnimator(enemy.enemyPrefab, spawnPosition, enemy.spawnAnimator);
                     break;
                 }
             }
         }
+    }
+
+    private void SpawnSpawnAnimator(GameObject enemyPrefab, Vector3 position, RuntimeAnimatorController overrideController = null)
+    {
+        GameObject animationInstance = Instantiate(_spawnAnimationPrefab, position, Quaternion.identity);
+        Animator animator = animationInstance.GetComponent<Animator>();
+        if (animator != null && overrideController != null)
+        {
+            animator.runtimeAnimatorController = overrideController;
+        }
+
+        SpawnAnimation spawnAnimation = animationInstance.GetComponent<SpawnAnimation>();
+        float animationDuration = spawnAnimation.GetAnimationDuration();
+        if (animationDuration <= 0)
+        {
+            Debug.LogWarning("Animation duration not detected, using default 1 second.");
+            animationDuration = 1f;
+        }
+
+        StartCoroutine(SpawnEnemy(enemyPrefab, position, animationDuration));
+    }
+
+    private IEnumerator SpawnEnemy(GameObject enemyPrefab, Vector3 position, float animationDuration)
+    {
+        yield return new WaitForSeconds(animationDuration);
+        Instantiate(enemyPrefab, position, Quaternion.identity);
     }
 
     private void OnDrawGizmos()
