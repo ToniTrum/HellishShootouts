@@ -3,10 +3,11 @@ using UnityEngine;
 public class EnemyWeapon : MonoBehaviour
 {
     [SerializeField] private EnemyWeaponConfig _config;
-    [SerializeField] private EnemyStalking _enemyStalking;
-    [SerializeField] private EnemyAnimation _enemyAnimation;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private float damageAmount = 10f;
+
+    private EnemyStalking _enemyStalking;
+    private EnemyAnimation _enemyAnimation;
+    private SpriteRenderer _spriteRenderer;
 
     private Animator _enemyAnimator;
     private readonly int _isWalkingHash = Animator.StringToHash("IsWalking");
@@ -22,19 +23,16 @@ public class EnemyWeapon : MonoBehaviour
     {
         _enemyStalking = GetComponentInParent<EnemyStalking>();
         _enemyAnimation = GetComponentInParent<EnemyAnimation>();
+
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _weaponCollider = GetComponent<Collider2D>();
+
         _enemyAnimator = _enemyAnimation.GetComponent<Animator>();
 
-        _weaponCollider = GetComponent<Collider2D>();
         _weaponCollider.isTrigger = true;
         _weaponCollider.enabled = false;
 
         _initialPosition = transform.localPosition;
-        ApplyConfig();
-    }
-
-    private void ApplyConfig()
-    {
         _spriteRenderer.sprite = _config.sprite;
     }
 
