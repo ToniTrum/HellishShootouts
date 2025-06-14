@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 020e5f82a826d484abd3b5447ab56532
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 5513436341910449852
+    second: FurcasIdle_0
+  - first:
+      213: -5663273152998941174
+    second: FurcasIdle_1
+  - first:
+      213: -5605833137091802747
+    second: FurcasIdle_2
+  - first:
+      213: 4288917378696090834
+    second: FurcasIdle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -67,7 +79,7 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -80,21 +92,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,12 +119,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 361a20c327f92124fa8e391c4e200adf
-      internalID: -1126212830
+      spriteID: cbe2d4b3429a38c40800000000000000
+      internalID: 5513436341910449852
       vertices: []
       indices: 
       edges: []
@@ -141,12 +141,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5f4984b3f03868e428fb6d8d84b55136
-      internalID: -452811172
+      spriteID: a0edd7992130861b0800000000000000
+      internalID: -5663273152998941174
       vertices: []
       indices: 
       edges: []
@@ -162,12 +163,13 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 73ef0a55eab89254fb0c98c723441e90
-      internalID: -516577228
+      spriteID: 589878976741432b0800000000000000
+      internalID: -5605833137091802747
       vertices: []
       indices: 
       edges: []
@@ -183,17 +185,19 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 6a10e027c61dc8748a093f1d16b088f6
-      internalID: 1184901483
+      spriteID: 2d41e2cd1ab458b30800000000000000
+      internalID: 4288917378696090834
       vertices: []
       indices: 
       edges: []
       weights: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
@@ -203,11 +207,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      FurcasIdle_0: -1126212830
-      FurcasIdle_1: -452811172
-      FurcasIdle_2: -516577228
-      FurcasIdle_3: 1184901483
+      FurcasIdle_0: 5513436341910449852
+      FurcasIdle_1: -5663273152998941174
+      FurcasIdle_2: -5605833137091802747
+      FurcasIdle_3: 4288917378696090834
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

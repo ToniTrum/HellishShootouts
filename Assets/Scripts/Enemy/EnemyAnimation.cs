@@ -3,9 +3,9 @@ using UnityEngine;
 public class EnemyAnimation : MonoBehaviour
 {
     [SerializeField] private float attackCooldown = 1f;
-    [SerializeField] private Animator _animator;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
 
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
     private EnemyMovement _enemyMovement;
     private EnemyStalking _enemyStalking;
 
