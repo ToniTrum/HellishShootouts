@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 171732883}
   - component: {fileID: 171732884}
   - component: {fileID: 171732885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallWest
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57249165, y: 0, z: -11}
+  m_LocalPosition: {x: 0.39279366, y: -0.00000029802322, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 870698092}
   - component: {fileID: 870698093}
   - component: {fileID: 870698094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallSouth
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ Transform:
   m_GameObject: {fileID: 870698090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.18, y: -20.53, z: 0}
+  m_LocalPosition: {x: -0.31, y: -20.53, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1526,7 +1526,7 @@ GameObject:
   - component: {fileID: 888996083}
   - component: {fileID: 888996084}
   - component: {fileID: 888996085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallEast
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2225,6 +2225,7 @@ GameObject:
   - component: {fileID: 1208073358}
   - component: {fileID: 1208073359}
   - component: {fileID: 1208073362}
+  - component: {fileID: 1208073363}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2477,6 +2478,26 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.57, y: 0.42974216}
   m_EdgeRadius: 0
+--- !u!114 &1208073363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208073353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0765b90b1c5163649b80922fd71470c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashDistance: 5
+  dashDuration: 0.2
+  dashCooldown: 1
+  dashKey: 114
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  skinWidth: 0.05
 --- !u!1 &1211169721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +2794,7 @@ Transform:
   m_GameObject: {fileID: 1304924659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.57249165, y: -0.00000029802322, z: -11}
+  m_LocalPosition: {x: 0.39279366, y: -0.00000029802322, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3105,7 +3126,7 @@ GameObject:
   - component: {fileID: 1839226094}
   - component: {fileID: 1839226095}
   - component: {fileID: 1839226096}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WallNorth
   m_TagString: Wall
   m_Icon: {fileID: 0}
