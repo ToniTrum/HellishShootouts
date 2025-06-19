@@ -29,24 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // TEST BEGIN
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerStats.TakeDamage(10f);
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            playerStats.Heal(20f);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && playerStats.UseStamina(20f))
-        {
-            Debug.Log("Used Stamina for sprint!");
-        }
-        if (Input.GetKeyDown(KeyCode.Q) && playerStats.UseMana(15f))
-        {
-            Debug.Log("Cast a spell!");
-        }
-        // TEST END
+        
     }
 
     private void OnPlayerDeath()
