@@ -2,13 +2,13 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class DashController : MonoBehaviour
+public class PlayerDash : MonoBehaviour
 {
     [Header("Dash Settings")]
     public float dashDistance = 5f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
-    public KeyCode dashKey = KeyCode.R;
+    public KeyCode dashKey = KeyCode.Space;
 
     [Header("Collision")]
     [Tooltip("Какие слои считается стеной при деше")]
