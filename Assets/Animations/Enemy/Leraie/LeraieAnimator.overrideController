@@ -8,4 +8,10 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: LeraieAnimator
   m_Controller: {fileID: 9100000, guid: 7379d610c9c2d494bb699c20748060de, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: bc11ee0453ba1524284479066fa7f906, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: acc4beea57665f24d9fbdcf6bc3919d2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a3edec9d9ed0a834cb791019677e880e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1d38328cefdeeb74ca6d82e3d4a56d73, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6cf432064b7b76440ba417b955c87879, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0651fe995758a8f46b15830dc4d8abea, type: 2}

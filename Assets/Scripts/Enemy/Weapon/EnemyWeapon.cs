@@ -18,6 +18,7 @@ public class EnemyWeapon : MonoBehaviour
     private bool _isAttacking;
     private Vector2 _attackDirection;
     private Collider2D _weaponCollider;
+    private bool _isDamageDealtThisAttack;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class EnemyWeapon : MonoBehaviour
             _isAttacking = true;
             _attackDirection = _enemyStalking.DirectionToPlayer;
             _weaponCollider.enabled = true;
+            _isDamageDealtThisAttack = false;
         }
 
         if (isWalking)
@@ -74,6 +76,7 @@ public class EnemyWeapon : MonoBehaviour
             {
                 _enemyAnimation.EndAttack();
                 _weaponCollider.enabled = false;
+                _isDamageDealtThisAttack = false;
             }
         }
         else
@@ -85,12 +88,13 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && _isAttacking)
+        if (other.CompareTag("Player") && _isAttacking && !_isDamageDealtThisAttack)
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (playerStats != null)
             {
                 playerStats.TakeDamage(damageAmount);
+                _isDamageDealtThisAttack = true;
             }
         }
     }
