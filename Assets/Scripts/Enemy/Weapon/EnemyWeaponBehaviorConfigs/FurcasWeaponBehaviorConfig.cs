@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyWeaponBehaviorConfig", menuName = "Enemy/Weapon/EnemyWeaponBehaviorConfig")]
+[CreateAssetMenu(fileName = "FurcasWeaponBehaviorConfig", menuName = "Enemy/Weapon/BehaviorConfig/Furcas")]
 public class FurcasWeaponBehaviorConfig : EnemyWeaponBehavior
 {
     [Header("Idle Settings")]
