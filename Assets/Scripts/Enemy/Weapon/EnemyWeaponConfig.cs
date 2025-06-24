@@ -4,5 +4,5 @@ using UnityEngine;
 public class EnemyWeaponConfig : ScriptableObject
 {
     public Sprite sprite;
-    public EnemyWeaponBehaviorConfig behavior;
+    public EnemyWeaponBehavior behavior;
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyWeaponBehaviorConfig", menuName = "Enemy/Weapon/EnemyWeaponBehaviorConfig")]
-public class EnemyWeaponBehaviorConfig : ScriptableObject, IEnemyWeaponBehavior
+public class FurcasWeaponBehaviorConfig : EnemyWeaponBehavior
 {
     [Header("Idle Settings")]
     public Vector2 idleOffset;
@@ -22,7 +22,7 @@ public class EnemyWeaponBehaviorConfig : ScriptableObject, IEnemyWeaponBehavior
     public float forwardDuration = 0.3f;
     public float totalAttackDuration = 0.7f;
 
-    public void Idle(Transform weaponTransform, bool isFlipped)
+    public override void Idle(Transform weaponTransform, bool isFlipped)
     {
         Vector2 basePosition = idleOffset;
         if (isFlipped)
@@ -33,7 +33,7 @@ public class EnemyWeaponBehaviorConfig : ScriptableObject, IEnemyWeaponBehavior
         weaponTransform.localPosition = basePosition + new Vector2(0, sway);
     }
 
-    public void Walk(Transform weaponTransform, bool isFlipped)
+    public override void Walk(Transform weaponTransform, bool isFlipped)
     {
         Vector2 basePosition = walkOffset;
         if (isFlipped)
@@ -46,7 +46,7 @@ public class EnemyWeaponBehaviorConfig : ScriptableObject, IEnemyWeaponBehavior
         weaponTransform.rotation = currentRotation * Quaternion.Euler(0, 0, walkRotationOffset);
     }
 
-    public void Attack
+    public override void Attack
     (
         Transform weaponTransform, 
         bool isFlipped, 
