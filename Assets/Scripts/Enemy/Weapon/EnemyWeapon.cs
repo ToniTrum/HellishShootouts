@@ -27,11 +27,14 @@ public class EnemyWeapon : MonoBehaviour
 
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _weaponCollider = GetComponent<Collider2D>();
+        if (_weaponCollider != null)
+        {
+            _weaponCollider.isTrigger = true;
+            _weaponCollider.enabled = false;
+        }
 
         _enemyAnimator = _enemyAnimation.GetComponent<Animator>();
 
-        _weaponCollider.isTrigger = true;
-        _weaponCollider.enabled = false;
 
         _initialPosition = transform.localPosition;
         _spriteRenderer.sprite = _config.sprite;
@@ -50,8 +53,11 @@ public class EnemyWeapon : MonoBehaviour
             _attackStartTime = Time.time;
             _isAttacking = true;
             _attackDirection = _enemyStalking.DirectionToPlayer;
-            _weaponCollider.enabled = true;
             _isDamageDealtThisAttack = false;
+            if (_weaponCollider != null)
+            {
+                _weaponCollider.enabled = true;
+            }
         }
 
         if (isWalking)
@@ -75,8 +81,11 @@ public class EnemyWeapon : MonoBehaviour
             if (!_isAttacking)
             {
                 _enemyAnimation.EndAttack();
-                _weaponCollider.enabled = false;
                 _isDamageDealtThisAttack = false;
+                if (_weaponCollider != null)
+                {
+                    _weaponCollider.enabled = false;
+                }
             }
         }
         else
@@ -88,7 +97,10 @@ public class EnemyWeapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && _isAttacking && !_isDamageDealtThisAttack)
+        if (_weaponCollider != null &&
+            other.CompareTag("Player") &&
+            _isAttacking &&
+            !_isDamageDealtThisAttack)
         {
             PlayerStats playerStats = other.GetComponent<PlayerStats>();
             if (playerStats != null)
