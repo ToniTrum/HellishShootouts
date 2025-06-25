@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff3f13aaed2b314d8ebb11190de4ab8, type: 3}
   m_Name: LeraieWeaponConfig
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  behavior: {fileID: 0}
+  sprite: {fileID: 21300000, guid: b5b08743c32f5d54ca1c2258e4f48b52, type: 3}
+  behavior: {fileID: 11400000, guid: c0b0f6a616ca8e6478ae1c8a8bdb71dc, type: 2}

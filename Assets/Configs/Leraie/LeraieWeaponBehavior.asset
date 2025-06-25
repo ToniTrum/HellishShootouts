@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdd355a8981e8849a4e228d13989f49, type: 3}
   m_Name: LeraieWeaponBehavior
   m_EditorClassIdentifier: 
-  idleOffset: {x: 0, y: 0}
-  idleSwayAmplitude: 0.1
-  idleSwaySpeed: 2
-  idleRotationOffset: 0
-  walkOffset: {x: 0, y: 0}
-  walkRotationOffset: 0
+  idleOffset: {x: 0, y: -0.4}
+  idleSwayAmplitude: 0.05
+  idleSwaySpeed: 5
+  idleRotationOffset: -90
+  walkOffset: {x: 0, y: -0.4}
+  walkRotationOffset: -90
   attackOffset: {x: 0, y: 0}
   attackSpeed: 0
