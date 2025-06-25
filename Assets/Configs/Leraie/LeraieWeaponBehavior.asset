@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcdd355a8981e8849a4e228d13989f49, type: 3}
   m_Name: LeraieWeaponBehavior
   m_EditorClassIdentifier: 
-  idleOffset: {x: 0, y: -0.4}
+  idleOffset: {x: 0.1, y: -0.4}
   idleSwayAmplitude: 0.05
   idleSwaySpeed: 5
   idleRotationOffset: -90
-  walkOffset: {x: 0, y: -0.4}
+  walkOffset: {x: 0.1, y: -0.4}
   walkRotationOffset: -90
-  attackOffset: {x: 0, y: 0}
-  attackSpeed: 0
+  attackOffset: {x: 0.3, y: 0}
+  bulletPrefab: {fileID: 7398648194121826862, guid: dfa68f290321e4b45b99b21c42a1ada0, type: 3}
+  shootStartTimeAfterAttack: 0.7
+  pauseTimeAfterShooting: 1
