@@ -65,7 +65,7 @@ public class PlayerDash : MonoBehaviour
 
         animator.SetBool(IsWalkHash, false);
         animator.SetBool(IsDashHash, true);
-        animator.Play("Dash", 0, 0f);
+        animator.Play("PlayerDash", 0, 0f);
 
         if (trail != null)
             trail.emitting = true;
@@ -99,7 +99,7 @@ public class PlayerDash : MonoBehaviour
         if (trail != null)
             trail.emitting = false;
 
-        animator.Play("Idle", 0, 0f);
+        animator.Play("PlayerIdle", 0, 0f);
 
         isDash = false;
     }
