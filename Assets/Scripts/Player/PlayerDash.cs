@@ -10,6 +10,10 @@ public class PlayerDash : MonoBehaviour
     public float dashDistance = 5f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
+    [Tooltip("Сколько стамины расходуется при деше")]
+    public float dashStaminaCost = 20f;
+    [Tooltip("Скорость восстановления стамины (единиц в секунду)")]
+    public float staminaRegenRate = 10f;
     public KeyCode dashKey = KeyCode.Space;
 
     [Header("Collision")]
@@ -17,6 +21,10 @@ public class PlayerDash : MonoBehaviour
     public LayerMask obstacleLayer;
     [Tooltip("Отступ от стены, чтобы не застрять в коллайдере")]
     public float skinWidth = 0.05f;
+
+    [Header("References")]
+    [Tooltip("Ссылка на компонент PlayerStats для управления стаминой")]
+    public PlayerStats playerStats;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -36,10 +44,20 @@ public class PlayerDash : MonoBehaviour
         trail = GetComponent<TrailRenderer>();
         if (trail != null)
             trail.emitting = false;
+        if (playerStats == null)
+            playerStats = GetComponent<PlayerStats>();
     }
 
     private void Update()
     {
+        // Регенерация стамины
+        if (!isDash && playerStats != null)
+        {
+            float toRegen = staminaRegenRate * Time.deltaTime;
+            if (playerStats.CurrentStamina < playerStats.MaxStamina)
+                playerStats.RestoreStamina(toRegen);
+        }
+
         if (isDash)
             return;
 
@@ -51,8 +69,12 @@ public class PlayerDash : MonoBehaviour
         if (inputDir != Vector2.zero)
             lastMoveDirection = inputDir;
 
+        // Проверяем возможность дэша: есть ли стамина и время кулдауна
         if (Input.GetKeyDown(dashKey) && Time.time >= lastDashTime + dashCooldown)
         {
+            if (playerStats != null && !playerStats.UseStamina(dashStaminaCost))
+                return; // недостаточно выносливости
+
             dashDirection = lastMoveDirection;
             StartCoroutine(PerformDash());
         }
@@ -100,7 +122,6 @@ public class PlayerDash : MonoBehaviour
             trail.emitting = false;
 
         animator.Play("PlayerIdle", 0, 0f);
-
         isDash = false;
     }
 }

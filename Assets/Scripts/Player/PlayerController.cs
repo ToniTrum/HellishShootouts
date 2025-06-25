@@ -1,35 +1,36 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private Slider healthSlider;
-    [SerializeField] private Slider staminaSlider;
-    [SerializeField] private Slider manaSlider;
+
+    [Header("UI Elements")]
+    [SerializeField] private Image healthBar;    // Image типа Filled
+    [SerializeField] private Image staminaBar;   // Image типа Filled
 
     private void Start()
     {
-        // UI initialization
-        healthSlider.maxValue = playerStats.MaxHealth;
-        staminaSlider.maxValue = playerStats.MaxStamina;
-        manaSlider.maxValue = playerStats.MaxMana;
-
-        // Event subscribes
-        playerStats.OnHealthChanged += (current, max) => healthSlider.value = current;
-        playerStats.OnStaminaChanged += (current, max) => staminaSlider.value = current;
-        playerStats.OnManaChanged += (current, max) => manaSlider.value = current;
+        // Подписываемся на события изменения статов
+        playerStats.OnHealthChanged += UpdateHealthBar;
+        playerStats.OnStaminaChanged += UpdateStaminaBar;
         playerStats.OnDeath += OnPlayerDeath;
 
-        // Start values
-        healthSlider.value = playerStats.CurrentHealth;
-        staminaSlider.value = playerStats.CurrentStamina;
-        manaSlider.value = playerStats.CurrentMana;
+        // Устанавливаем начальные значения
+        UpdateHealthBar(playerStats.CurrentHealth, playerStats.MaxHealth);
+        UpdateStaminaBar(playerStats.CurrentStamina, playerStats.MaxStamina);
     }
 
-    private void Update()
+    private void UpdateHealthBar(float current, float max)
     {
-        
+        if (healthBar != null)
+            healthBar.fillAmount = current / max;
+    }
+
+    private void UpdateStaminaBar(float current, float max)
+    {
+        if (staminaBar != null)
+            staminaBar.fillAmount = current / max;
     }
 
     private void OnPlayerDeath()
