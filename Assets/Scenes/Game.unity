@@ -2182,14 +2182,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04ba6281d75c4b40b91b8c357805a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnAnimationPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
+  _stateAnimatorPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
   enemyTypes:
   - enemyPrefab: {fileID: 4380708861023671179, guid: 61bf1e00f34ddf940a4f3e500124163e, type: 3}
     spawnChance: 75
     spawnAnimator: {fileID: 22100000, guid: 2e56034fb97034846973681e8283c3df, type: 2}
   - enemyPrefab: {fileID: 7959411299118104591, guid: 0965c4ea622aa0a40892d366fd6a1783, type: 3}
     spawnChance: 25
-    spawnAnimator: {fileID: 22100000, guid: 87e15b8fcbca7b64eb3b430567320755, type: 2}
+    spawnAnimator: {fileID: 22100000, guid: 3097bb8a3a08e944295f5846ba2da3f9, type: 2}
   spawnAreaSize: {x: 30, y: 30}
   spawnInterval: 5
 --- !u!4 &1292964821

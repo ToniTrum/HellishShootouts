@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4719017130300094055}
   - component: {fileID: 1250434248753879514}
   m_Layer: 0
-  m_Name: SpawnAnimatorPrefab
+  m_Name: StateAnimatorPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

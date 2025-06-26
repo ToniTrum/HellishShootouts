@@ -11,7 +11,7 @@ public class EnemySpawnManager : MonoBehaviour
         public RuntimeAnimatorController spawnAnimator;
     }
 
-    [SerializeField] private GameObject _spawnAnimationPrefab;
+    [SerializeField] private GameObject _stateAnimatorPrefab;
     [SerializeField] private EnemySpawnData[] enemyTypes;
     [SerializeField] private Vector2 spawnAreaSize = new(23f, 22f);
     [SerializeField] private float spawnInterval = 5f;
@@ -57,23 +57,23 @@ public class EnemySpawnManager : MonoBehaviour
                     );
                     Vector3 spawnPosition = transform.position + randomPoint;
 
-                    SpawnSpawnAnimator(enemy.enemyPrefab, spawnPosition, enemy.spawnAnimator);
+                    SpawnStateAnimator(enemy.enemyPrefab, spawnPosition, enemy.spawnAnimator);
                     break;
                 }
             }
         }
     }
 
-    private void SpawnSpawnAnimator(GameObject enemyPrefab, Vector3 position, RuntimeAnimatorController overrideController = null)
+    private void SpawnStateAnimator(GameObject enemyPrefab, Vector3 position, RuntimeAnimatorController overrideController = null)
     {
-        GameObject animationInstance = Instantiate(_spawnAnimationPrefab, position, Quaternion.identity);
+        GameObject animationInstance = Instantiate(_stateAnimatorPrefab, position, Quaternion.identity);
         Animator animator = animationInstance.GetComponent<Animator>();
         if (animator != null && overrideController != null)
         {
             animator.runtimeAnimatorController = overrideController;
         }
 
-        SpawnAnimation spawnAnimation = animationInstance.GetComponent<SpawnAnimation>();
+        StateAnimation spawnAnimation = animationInstance.GetComponent<StateAnimation>();
         float animationDuration = spawnAnimation.GetAnimationDuration();
         if (animationDuration <= 0)
         {
