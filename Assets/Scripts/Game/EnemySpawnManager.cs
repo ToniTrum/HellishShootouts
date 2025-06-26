@@ -87,7 +87,9 @@ public class EnemySpawnManager : MonoBehaviour
     private IEnumerator SpawnEnemy(GameObject enemyPrefab, Vector3 position, float animationDuration)
     {
         yield return new WaitForSeconds(animationDuration);
-        Instantiate(enemyPrefab, position, Quaternion.identity);
+        // Instantiate and tag the spawned enemy
+        GameObject enemyInstance = Instantiate(enemyPrefab, position, Quaternion.identity);
+        enemyInstance.tag = "Enemy";
     }
 
     private void OnDrawGizmos()

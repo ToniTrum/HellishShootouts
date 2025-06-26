@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class PlayerController : MonoBehaviour
     [Header("Death")]
     [SerializeField] private GameObject _stateAnimatorPrefab;
     [SerializeField] private RuntimeAnimatorController _deathAnimator;
+    [Tooltip("Name of the scene to load after death delay")]
+    [SerializeField] private string _menuSceneName = "Menu";
+    [Tooltip("Delay before loading menu scene after death (seconds)")]
+    [SerializeField] private float _deathLoadDelay = 1.5f;
 
     private void Awake()
     {
@@ -43,25 +48,42 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        // Где-нибудь в этой функции напиши уничтожение мобов, спавнеров и спавн менеджера
+        Vector3 deathPosition = transform.position;
 
-        Vector3 position = transform.position;
+        if (_stateAnimatorPrefab != null)
+        {
+            GameObject animGO = Instantiate(_stateAnimatorPrefab, deathPosition, Quaternion.identity);
+            var animator = animGO.GetComponent<Animator>();
+            if (animator != null && _deathAnimator != null)
+            {
+                animator.runtimeAnimatorController = _deathAnimator;
+            }
+        }
+
+        StartCoroutine(LoadMenuAfterDelay(_deathLoadDelay));
+
         Destroy(gameObject);
-
-        GameObject animationInstance = Instantiate(_stateAnimatorPrefab, position, Quaternion.identity);
-
-        Animator animator = animationInstance.GetComponent<Animator>();
-        animator.runtimeAnimatorController = _deathAnimator;
-
-        StateAnimation spawnAnimation = animationInstance.GetComponent<StateAnimation>();
-        float animationDuration = spawnAnimation.GetAnimationDuration();
-
-        StartCoroutine(EndGame(animationDuration));
+        DestroySpawnManagerAndEnemies();
     }
 
-    private IEnumerator EndGame(float animationDuration)
+    private IEnumerator LoadMenuAfterDelay(float delay)
     {
-        yield return new WaitForSeconds(animationDuration);
-        // Пиши конец игры здесь
+        yield return new WaitForSeconds(delay);
+        if (!string.IsNullOrEmpty(_menuSceneName))
+        {
+            SceneManager.LoadScene(_menuSceneName);
+        }
+    }
+
+    private void DestroySpawnManagerAndEnemies()
+    {
+        var spawnMgr = GameObject.FindWithTag("SpawnManager");
+        if (spawnMgr != null) Destroy(spawnMgr);
+
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy);
+        }
     }
 }
