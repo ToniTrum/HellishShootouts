@@ -80,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
         
         if(swordAnimator != null)
         {
-            swordAnimator.SetBool("isAttack");
+            swordAnimator.SetBool("isAttack", true);
         }
         else
         {
