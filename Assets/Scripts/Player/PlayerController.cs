@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     private PlayerStats playerStats;
     private PlayerMovement playerMovement;
     private SpriteRenderer spriteRenderer;
-
+    private SwordMovement sword;
+    
     [Header("UI Elements")]
     [SerializeField] private Image _healthBar;
     [SerializeField] private Image _staminaBar;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sword = GetComponentInChildren<SwordMovement>();
     }
 
     private void Start()
@@ -50,7 +52,7 @@ public class PlayerController : MonoBehaviour
     {
         playerMovement.enabled = false;
         spriteRenderer.enabled = false;
-
+        sword.ChangeAnimation("SwordDrop");
         DestroySpawnManagerAndEnemies();
 
         Vector3 position = transform.position;
