@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AttackArea : MonoBehaviour
 {
+    [SerializeField] private float detectionRadius = 10f; // Радиус обнаружения врагов
     [SerializeField] private float damage = 10f;
     
     private List<EnemyStats> enemiesInArea = new List<EnemyStats>();
@@ -16,7 +17,38 @@ public class AttackArea : MonoBehaviour
         DamageEnemiesInArea();
     }
     
+    private void Update()
+    {
+        RotateTowardsNearestEnemyInRadius();
+    }
     
+    private void RotateTowardsNearestEnemyInRadius()
+    {
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, detectionRadius, LayerMask.GetMask("Enemy"));
+        if (hits.Length == 0) return;
+
+        Transform nearestEnemy = null;
+        float minDistance = float.MaxValue;
+        foreach (var hit in hits)
+        {
+            EnemyStats enemy = hit.GetComponent<EnemyStats>();
+            if (enemy == null) continue;
+            float distance = Vector2.Distance(transform.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestEnemy = enemy.transform;
+            }
+        }
+        if (nearestEnemy is not null)
+        {
+            Vector2 direction = nearestEnemy.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+    }
+        
     private void OnTriggerEnter2D(Collider2D c)
     {
         Console.WriteLine("trigger enter");
