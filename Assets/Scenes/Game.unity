@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 519930035}
   - component: {fileID: 519930034}
   m_Layer: 5
-  m_Name: bgHpBar
+  m_Name: BackgroundHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 830800272}
   - component: {fileID: 830800274}
   m_Layer: 5
-  m_Name: HpBar
+  m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1496,6 +1496,39 @@ Transform:
   - {fileID: 1731136290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1137238056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1137238057}
+  m_Layer: 0
+  m_Name: Interface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1137238057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137238056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.07905, y: -1.35363, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1956779445}
+  - {fileID: 1750389665}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138836242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,14 +1690,14 @@ GameObject:
   - component: {fileID: 1208073357}
   - component: {fileID: 1208073356}
   - component: {fileID: 1208073355}
+  - component: {fileID: 1208073358}
   - component: {fileID: 1208073354}
   - component: {fileID: 1208073363}
-  - component: {fileID: 1208073358}
+  - component: {fileID: 1208073366}
+  - component: {fileID: 1208073365}
   - component: {fileID: 1208073359}
   - component: {fileID: 1208073362}
   - component: {fileID: 1208073364}
-  - component: {fileID: 1208073365}
-  - component: {fileID: 1208073366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2031,9 +2064,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe41f9a3e2d231f4cb1fd69d0d44c437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 1208073366}
-  healthBar: {fileID: 830800272}
-  staminaBar: {fileID: 336605268}
+  _healthBar: {fileID: 830800272}
+  _staminaBar: {fileID: 336605268}
+  _stateAnimatorPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
+  _deathAnimator: {fileID: 22100000, guid: 5aca840bdff72ca4188d530dcb75909f, type: 2}
 --- !u!114 &1208073366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2150,14 +2184,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04ba6281d75c4b40b91b8c357805a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnAnimationPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
+  _stateAnimatorPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
   enemyTypes:
   - enemyPrefab: {fileID: 4380708861023671179, guid: 61bf1e00f34ddf940a4f3e500124163e, type: 3}
     spawnChance: 75
     spawnAnimator: {fileID: 22100000, guid: 2e56034fb97034846973681e8283c3df, type: 2}
   - enemyPrefab: {fileID: 7959411299118104591, guid: 0965c4ea622aa0a40892d366fd6a1783, type: 3}
     spawnChance: 25
-    spawnAnimator: {fileID: 22100000, guid: 87e15b8fcbca7b64eb3b430567320755, type: 2}
+    spawnAnimator: {fileID: 22100000, guid: 3097bb8a3a08e944295f5846ba2da3f9, type: 2}
   spawnAreaSize: {x: 30, y: 30}
   spawnInterval: 5
 --- !u!4 &1292964821
@@ -2663,7 +2697,7 @@ RectTransform:
   m_Children:
   - {fileID: 1820480655}
   - {fileID: 336605266}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1137238057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2682,7 +2716,7 @@ GameObject:
   - component: {fileID: 1820480657}
   - component: {fileID: 1820480656}
   m_Layer: 5
-  m_Name: BgStaminaBar
+  m_Name: BackgroundStaminaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2920,7 +2954,7 @@ GameObject:
   - component: {fileID: 1956779443}
   - component: {fileID: 1956779442}
   m_Layer: 5
-  m_Name: Hp
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3003,7 +3037,7 @@ RectTransform:
   m_Children:
   - {fileID: 519930033}
   - {fileID: 830800271}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1137238057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3020,6 +3054,5 @@ SceneRoots:
   - {fileID: 1106163258}
   - {fileID: 1304924662}
   - {fileID: 1292964821}
-  - {fileID: 1956779445}
-  - {fileID: 1750389665}
   - {fileID: 1304860497}
+  - {fileID: 1137238057}

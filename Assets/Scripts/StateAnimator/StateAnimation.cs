@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnAnimation : MonoBehaviour
+public class StateAnimation : MonoBehaviour
 {
     private Animator _animator;
 
@@ -8,7 +8,7 @@ public class SpawnAnimation : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         
-        _animator.SetBool("IsSpawning", true);
+        _animator.SetBool("IsAnimate", true);
     }
 
     private void Update()

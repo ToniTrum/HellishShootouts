@@ -27,7 +27,11 @@ public class EnemyAnimation : MonoBehaviour
         bool isWalking = _enemyMovement.GetVelocity().magnitude > 0.1f;
         _animator.SetBool(_isWalkingHash, isWalking);
 
-        float distanceToPlayer = (_enemyStalking.player.position - transform.position).magnitude;
+        float distanceToPlayer = float.MaxValue;
+        if (_enemyStalking.player != null)
+        {
+            distanceToPlayer = (_enemyStalking.player.position - transform.position).magnitude;
+        }
         if (!_enemyStalking.StalkingOfPlayer 
             && distanceToPlayer <= _enemyStalking.attackDistance 
             && Time.time >= _lastAttackTime + attackCooldown)
