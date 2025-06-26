@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
+        // Где-нибудь в этой функции напиши уничтожение мобов, спавнеров и спавн менеджера
+
         Vector3 position = transform.position;
         Destroy(gameObject);
 
@@ -49,5 +52,16 @@ public class PlayerController : MonoBehaviour
 
         Animator animator = animationInstance.GetComponent<Animator>();
         animator.runtimeAnimatorController = _deathAnimator;
+
+        StateAnimation spawnAnimation = animationInstance.GetComponent<StateAnimation>();
+        float animationDuration = spawnAnimation.GetAnimationDuration();
+
+        StartCoroutine(EndGame(animationDuration));
+    }
+
+    private IEnumerator EndGame(float animationDuration)
+    {
+        yield return new WaitForSeconds(animationDuration);
+        // Пиши конец игры здесь
     }
 }

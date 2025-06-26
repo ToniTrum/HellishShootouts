@@ -88,10 +88,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752346566520615440, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _deathAnimator
+      value: 
+      objectReference: {fileID: 22100000, guid: a2cf2501681133641b564bca0940f98f, type: 2}
     - target: {fileID: 2777769035009683150, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bf7580cd56f151345bf4c4f985909ebc, type: 3}
+    - target: {fileID: 2797064687259291375, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3309751956948792041, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
       propertyPath: m_Constraints
       value: 4

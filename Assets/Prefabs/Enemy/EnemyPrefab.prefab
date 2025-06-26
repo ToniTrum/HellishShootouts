@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1280186011095931409}
   - component: {fileID: 209390687296148931}
   - component: {fileID: 2797064687259291375}
+  - component: {fileID: 2752346566520615440}
   - component: {fileID: 5757868978561194026}
   - component: {fileID: 1849871817883481471}
   m_Layer: 3
@@ -178,6 +179,20 @@ MonoBehaviour:
   maxHealth: 100
   healthRegenRate: 0
   regenDelay: 2
+--- !u!114 &2752346566520615440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704384847091714825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e634a9b65860a94997a16648e336c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateAnimatorPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
+  _deathAnimator: {fileID: 9100000, guid: d471df4471749b143a36b2510e1abfd7, type: 2}
 --- !u!95 &5757868978561194026
 Animator:
   serializedVersion: 7

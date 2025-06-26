@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2752346566520615440, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
+      propertyPath: _deathAnimator
+      value: 
+      objectReference: {fileID: 22100000, guid: 9c69d379bed866145ad9798715c62ce9, type: 2}
     - target: {fileID: 2777769035009683150, guid: 979203393a36d3c48ba02bb95faaad37, type: 3}
       propertyPath: m_Sprite
       value: 
