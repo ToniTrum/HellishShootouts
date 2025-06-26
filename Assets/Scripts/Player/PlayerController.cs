@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats;
+    private PlayerMovement playerMovement;
+    private SpriteRenderer spriteRenderer;
 
     [Header("UI Elements")]
     [SerializeField] private Image _healthBar;
@@ -17,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerStats = GetComponent<PlayerStats>();
+        playerMovement = GetComponent<PlayerMovement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -43,11 +48,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
+        playerMovement.enabled = false;
+        spriteRenderer.enabled = false;
+
         DestroySpawnManagerAndEnemies();
 
         Vector3 position = transform.position;
-        Destroy(gameObject);
-
         GameObject animationInstance = Instantiate(_stateAnimatorPrefab, position, Quaternion.identity);
 
         Animator animator = animationInstance.GetComponent<Animator>();
@@ -62,7 +68,8 @@ public class PlayerController : MonoBehaviour
     private IEnumerator EndGame(float animationDuration)
     {
         yield return new WaitForSeconds(animationDuration);
-        // Пиши конец игры здесь
+        Destroy(gameObject);
+        SceneManager.LoadScene("Menu");
     }
 
     private void DestroySpawnManagerAndEnemies()
