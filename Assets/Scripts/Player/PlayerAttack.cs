@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private bool attacking = false;
     private bool canAttack = true;
     private float timer = 0f;
+    private readonly int _isAttackHash = Animator.StringToHash("isAttack");
 
     private void Awake()
     {
@@ -80,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
         
         if(swordAnimator != null)
         {
-            swordAnimator.SetBool("isAttack", true);
+            swordAnimator.SetBool(_isAttackHash, true);
         }
         else
         {
