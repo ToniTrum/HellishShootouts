@@ -2064,8 +2064,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe41f9a3e2d231f4cb1fd69d0d44c437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 830800272}
-  staminaBar: {fileID: 336605268}
+  _healthBar: {fileID: 830800272}
+  _staminaBar: {fileID: 336605268}
+  _stateAnimatorPrefab: {fileID: 2562672500000965507, guid: 55b0d364a272c3f458ce1bf7c7b4f154, type: 3}
+  _deathAnimator: {fileID: 22100000, guid: 5aca840bdff72ca4188d530dcb75909f, type: 2}
 --- !u!114 &1208073366
 MonoBehaviour:
   m_ObjectHideFlags: 0

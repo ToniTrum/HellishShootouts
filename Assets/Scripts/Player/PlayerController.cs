@@ -6,8 +6,12 @@ public class PlayerController : MonoBehaviour
     private PlayerStats playerStats;
 
     [Header("UI Elements")]
-    [SerializeField] private Image healthBar;
-    [SerializeField] private Image staminaBar;
+    [SerializeField] private Image _healthBar;
+    [SerializeField] private Image _staminaBar;
+
+    [Header("Death")]
+    [SerializeField] private GameObject _stateAnimatorPrefab;
+    [SerializeField] private RuntimeAnimatorController _deathAnimator;
 
     private void Awake()
     {
@@ -26,18 +30,24 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateHealthBar(float current, float max)
     {
-        if (healthBar != null)
-            healthBar.fillAmount = current / max;
+        if (_healthBar != null)
+            _healthBar.fillAmount = current / max;
     }
 
     private void UpdateStaminaBar(float current, float max)
     {
-        if (staminaBar != null)
-            staminaBar.fillAmount = current / max;
+        if (_staminaBar != null)
+            _staminaBar.fillAmount = current / max;
     }
 
     private void OnPlayerDeath()
     {
-        Debug.Log("Player has died!");
+        Vector3 position = transform.position;
+        Destroy(gameObject);
+
+        GameObject animationInstance = Instantiate(_stateAnimatorPrefab, position, Quaternion.identity);
+
+        Animator animator = animationInstance.GetComponent<Animator>();
+        animator.runtimeAnimatorController = _deathAnimator;
     }
 }

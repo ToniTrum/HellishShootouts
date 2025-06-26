@@ -12,11 +12,23 @@ public class EnemyStalking : MonoBehaviour
 
     private void Awake()
     {
-        player = FindFirstObjectByType<PlayerMovement>().transform;
+        PlayerMovement playerMovement = FindFirstObjectByType<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            player = playerMovement.transform;
+        }
+        else
+        {
+            player = null;
+        }
     }
     private void Update()
     {
-        Vector2 enemyToPlayer = player.position - transform.position;
+        Vector2 enemyToPlayer = Vector2.zero;
+        if (player != null)
+        {
+            enemyToPlayer = player.position - transform.position;
+        }
         DirectionToPlayer = enemyToPlayer.normalized;
 
         if (enemyToPlayer.magnitude >= attackDistance)
