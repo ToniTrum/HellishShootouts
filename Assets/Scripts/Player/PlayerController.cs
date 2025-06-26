@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        // Где-нибудь в этой функции напиши уничтожение мобов, спавнеров и спавн менеджера
+        DestroySpawnManagerAndEnemies();
 
         Vector3 position = transform.position;
         Destroy(gameObject);
@@ -63,5 +63,17 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(animationDuration);
         // Пиши конец игры здесь
+    }
+
+    private void DestroySpawnManagerAndEnemies()
+    {
+        var spawnManager = GameObject.Find("SpawnManager");
+        if (spawnManager != null) Destroy(spawnManager);
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var enemy in enemies)
+        {
+            Destroy(enemy);
+        }
     }
 }
