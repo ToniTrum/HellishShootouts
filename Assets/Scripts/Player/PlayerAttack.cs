@@ -20,7 +20,20 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        swordAnimator = GetComponentInChildren<Animator>();
+        Animator[] animators = GetComponentsInChildren<Animator>();
+        foreach (Animator anim in animators)
+        {
+            // Если аниматор не на корневом объекте (т.е. на дочернем)
+            if (anim.transform != transform)
+            {
+                swordAnimator = anim;
+                break;
+            }
+        }
+        if (swordAnimator == null)
+        {
+            Debug.LogError("Sword animator not found in children!");
+        }
     }
     void Start()
     {
@@ -31,10 +44,15 @@ public class PlayerAttack : MonoBehaviour
         if(swordAnimator == null)
         {
             swordAnimator = GetComponentInChildren<Animator>();
+
             if(swordAnimator == null)
             {
                 Debug.LogError("Sword Animator not found! Forgor to assign?");
             }
+        }
+        foreach (AnimatorControllerParameter param in swordAnimator.parameters)
+        {
+            Debug.Log($"Found animator on object: {swordAnimator.gameObject.name}");
         }
     }
     
@@ -68,6 +86,7 @@ public class PlayerAttack : MonoBehaviour
                 timer = 0f;
                 attacking = false;
                 canAttack = true;
+                swordAnimator.SetBool("isAttack", false);
             }
         }
     }
@@ -81,7 +100,7 @@ public class PlayerAttack : MonoBehaviour
         
         if(swordAnimator != null)
         {
-            swordAnimator.SetBool(_isAttackHash, true);
+            swordAnimator.SetBool("isAttack", true);
         }
         else
         {
