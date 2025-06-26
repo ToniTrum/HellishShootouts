@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class AttackArea : MonoBehaviour
 {
     [SerializeField] private float damage = 10f;
@@ -10,21 +10,14 @@ public class AttackArea : MonoBehaviour
     private List<EnemyStats> enemiesInArea = new List<EnemyStats>();
     private List<EnemyStats> damagedEnemies = new List<EnemyStats>();
     
-    private void Awake()
-    {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        if(rb == null) rb = gameObject.AddComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.useGravity = false;
-    }
-    
     private void OnEnable()
     {
         ClearDamagedList();
         DamageEnemiesInArea();
     }
-
-    private void OnTriggerEnter(Collider c)
+    
+    
+    private void OnTriggerEnter2D(Collider2D c)
     {
         Console.WriteLine("trigger enter");
         if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
@@ -38,9 +31,9 @@ public class AttackArea : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        Console.WriteLine("trigger exit");
+        Debug.Log("trigger exit");
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             EnemyStats enemy = other.GetComponentInParent<EnemyStats>();
@@ -66,7 +59,7 @@ public class AttackArea : MonoBehaviour
     {
         if (!damagedEnemies.Contains(enemy))
         {
-            Console.WriteLine("damaged!!!!!!");
+            Debug.Log($"damaged!!!!!! Enemy: {enemy.Yield()}");
             enemy.TakeDamage(damage);
             damagedEnemies.Add(enemy);
         }

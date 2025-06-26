@@ -693,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06012401, y: -0.00000017881393, z: -11}
+  m_LocalPosition: {x: 0.09643653, y: -0.00000017881393, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1695,6 +1695,7 @@ GameObject:
   - component: {fileID: 1208073363}
   - component: {fileID: 1208073366}
   - component: {fileID: 1208073365}
+  - component: {fileID: 1208073367}
   - component: {fileID: 1208073359}
   - component: {fileID: 1208073362}
   - component: {fileID: 1208073364}
@@ -2088,6 +2089,20 @@ MonoBehaviour:
   regenDelay: 2
   dmgShakeIntensity: 5
   dmgShakeTime: 1
+--- !u!114 &1208073367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208073353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a250bb7683620a945a18df2f28abc03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 10
+  timeToAttack: 0.25
 --- !u!1 &1211169721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,7 +2408,7 @@ Transform:
   m_GameObject: {fileID: 1304924659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06012401, y: -0.00000017881393, z: -11}
+  m_LocalPosition: {x: 0.09643653, y: -0.00000017881393, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2467,7 +2482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
-  AmplitudeGain: 4.928311
+  AmplitudeGain: 0
   FrequencyGain: 7.27
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &1304924667
@@ -2492,6 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375635475}
   - component: {fileID: 1375635476}
+  - component: {fileID: 1375635477}
   m_Layer: 7
   m_Name: AttackArea
   m_TagString: Untagged
@@ -2564,6 +2580,19 @@ PolygonCollider2D:
       - {x: 2.5, y: -1.75}
       - {x: 2.5, y: 1.75}
   m_UseDelaunayMesh: 0
+--- !u!114 &1375635477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375635474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6af6011640d4b15b66812065fe79a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1548501453
 GameObject:
   m_ObjectHideFlags: 0
