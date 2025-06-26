@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-
 public class EnemyStats : MonoBehaviour
 {
     [Header("Base Stats")]
@@ -36,6 +35,8 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            Debug.Log("Enemy died");
+            Destroy(gameObject);
             OnDeath?.Invoke();
         }
     }
