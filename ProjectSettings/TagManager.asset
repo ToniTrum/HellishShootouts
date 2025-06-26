@@ -43,5 +43,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sword
+    uniqueID: 1524357107
+    locked: 0
   m_RenderingLayers:
   - Default
