@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 472066853}
   - component: {fileID: 472066854}
   - component: {fileID: 472066855}
+  - component: {fileID: 472066856}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -609,6 +610,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &472066856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472066852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2058bab418a24a8d837d40a42638d441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &497948286
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +824,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06214279, y: -0.00000017881393, z: -11}
+  m_LocalPosition: {x: 0.05073914, y: -0.00000017881393, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2298,7 +2311,6 @@ MonoBehaviour:
   attackDamage: 10
   timeToAttack: 0.25
   attackCooldown: 0.5
-  swordAnimator: {fileID: 0}
 --- !u!1 &1211169721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,7 +2616,7 @@ Transform:
   m_GameObject: {fileID: 1304924659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06214279, y: -0.00000017881393, z: -11}
+  m_LocalPosition: {x: 0.05073914, y: -0.00000017881393, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
