@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         animator.runtimeAnimatorController = _deathAnimator;
 
         StateAnimation spawnAnimation = animationInstance.GetComponent<StateAnimation>();
+        spawnAnimation.IsFlipped = spriteRenderer.flipX;
         float animationDuration = spawnAnimation.GetAnimationDuration();
 
         StartCoroutine(EndGame(animationDuration));
