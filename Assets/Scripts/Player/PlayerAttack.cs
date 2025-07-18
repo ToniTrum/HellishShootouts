@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack Settings")]
     [SerializeField] private float attackDamage = 10f;
-    [SerializeField] private float timeToAttack = 0.25f;
+    [SerializeField] private float timeToAttack = 0.5f;
     [SerializeField] private float attackCooldown = 0.5f;
     private SwordAttack _swordAttack;
     
@@ -54,7 +54,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0f;
                 attacking = false;
-                _swordAttack.Attack();
             }
         }
     }
