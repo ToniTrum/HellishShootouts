@@ -1,17 +1,9 @@
-﻿using System.Collections;
 using UnityEngine;
 
-
-public class SwordMovement : MonoBehaviour
+public class SwordRotation : MonoBehaviour
 {
-    private string currentAnimation = "";
-    private Animator animator;
-    private Transform nearestEnemy;
-    
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    public Transform nearestEnemy;
+    public Vector3 directionToEnemy;
 
     private void Update()
     {
@@ -45,43 +37,34 @@ public class SwordMovement : MonoBehaviour
         else
         {
             nearestEnemy = null;
+            directionToEnemy = Vector3.zero;
         }
     }
 
     private void RotateToEnemy()
     {
-        // Debug.Log(nearestEnemy);
         if (nearestEnemy != null)
         {
             Vector3 direction = (nearestEnemy.position - transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            // Debug.Log(angle);
+
+            directionToEnemy = direction;
+
+            Vector3 localScale = transform.localScale;
+            if (angle > 90 || angle < -90)
+            {
+                localScale.y = -1f;
+            }
+            else
+            {
+                localScale.y = 1f;
+            }
+            transform.localScale = localScale;
         }
         else
         {
             transform.rotation = Quaternion.identity;
-        }
-    }
-    
-    public void ChangeAnimation(string animation, float time = 0)
-    {
-        if (time > 0) StartCoroutine(Wait());
-        else Validate();
-
-        IEnumerator Wait()
-        {
-            yield return new WaitForSeconds(time);
-            Validate();
-        } 
-
-        void Validate()
-        {
-            if (currentAnimation != animation)
-            {
-                currentAnimation = animation;
-                animator.Play(animation);
-            }
         }
     }
 }

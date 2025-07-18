@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         playerStats = GetComponent<PlayerStats>();
         playerMovement = GetComponent<PlayerMovement>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        sword = GetComponentInChildren<SwordMovement>().gameObject;
+        sword = GetComponentInChildren<SwordAttack>().gameObject;
     }
 
     private void Start()
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        playerMovement.enabled = false;
+        playerMovement.movementInput = Vector2.zero;
         spriteRenderer.enabled = false;
         Destroy(sword);
         DestroySpawnManagerAndEnemies();

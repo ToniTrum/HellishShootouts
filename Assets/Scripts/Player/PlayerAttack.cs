@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float timeToAttack = 0.25f;
     [SerializeField] private float attackCooldown = 0.5f;
-    private SwordMovement sword;
+    private SwordAttack _swordAttack;
     
     private GameObject attackArea;
     private bool attacking = false;
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
         attackArea = transform.GetChild(0).gameObject;
         attackArea.GetComponent<AttackArea>().SetDamage(attackDamage);
         attackArea.SetActive(false);
-        sword = GetComponentInChildren<SwordMovement>();
+        _swordAttack = GetComponentInChildren<SwordAttack>();
     }
     
     void Update()
@@ -54,6 +54,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0f;
                 attacking = false;
+                _swordAttack.Attack();
             }
         }
     }
@@ -63,7 +64,7 @@ public class PlayerAttack : MonoBehaviour
         attacking = true;
         
         attackArea.SetActive(true);
-        sword.ChangeAnimation("PlayerSwordAttack");
+        _swordAttack.Attack();
         
         timer = 0f;
     }
