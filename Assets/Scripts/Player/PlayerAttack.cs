@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
     
     private GameObject attackArea;
     private bool attacking = false;
-    private bool canAttack = true;
     private float timer = 0f;
     private readonly int _isAttackHash = Animator.StringToHash("isAttack");
 
@@ -55,7 +54,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0f;
                 attacking = false;
-                canAttack = true;
             }
         }
     }
@@ -63,9 +61,7 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        canAttack = false;
         
-        Debug.Log(sword);
         attackArea.SetActive(true);
         sword.ChangeAnimation("PlayerSwordAttack");
         
