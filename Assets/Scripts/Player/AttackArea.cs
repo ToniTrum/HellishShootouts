@@ -51,7 +51,6 @@ public class AttackArea : MonoBehaviour
         
     private void OnTriggerEnter2D(Collider2D c)
     {
-        Console.WriteLine("trigger enter");
         if (c.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             EnemyStats enemy = c.GetComponentInParent<EnemyStats>();
@@ -65,7 +64,6 @@ public class AttackArea : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("trigger exit");
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             EnemyStats enemy = other.GetComponentInParent<EnemyStats>();
@@ -91,7 +89,6 @@ public class AttackArea : MonoBehaviour
     {
         if (!damagedEnemies.Contains(enemy))
         {
-            Debug.Log($"damaged!!!!!! Enemy: {enemy.Yield()}");
             enemy.TakeDamage(damage);
             damagedEnemies.Add(enemy);
         }
