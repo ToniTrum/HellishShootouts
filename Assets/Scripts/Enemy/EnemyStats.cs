@@ -35,7 +35,6 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("Enemy died");
             Destroy(gameObject);
             OnDeath?.Invoke();
         }
