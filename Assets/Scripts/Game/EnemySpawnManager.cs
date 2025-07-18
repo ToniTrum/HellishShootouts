@@ -20,6 +20,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     private void Start()
     {
+        SelectRandomEnemy();
         nextSpawnTime = Time.time + spawnInterval;
     }
 
